@@ -8,7 +8,7 @@ Install
 
 1. Set up vagrant
 
-        vagrant up
+        vagrant up --provision
         vagrant ssh
         cd /vagrant
 
@@ -16,6 +16,10 @@ Install
 
         bin/wget-deps.bash
         bin/setup.bash
+
+3. Build Nutch
+
+        bin/build-nutch.bash
 
 
 References
