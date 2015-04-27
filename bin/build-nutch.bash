@@ -26,6 +26,9 @@ if [ -d runtime ]; then
     mv runtime runtime.bak-$ts
 fi
 
+# use the custom config file.
+cp /$SRCROOT/conf/ivy.xml ivy/ivy.xml
+
 # build nutch
 $ANT_HOME/bin/ant runtime
 
