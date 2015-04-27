@@ -20,6 +20,11 @@ if [ ! $ANT_HOME ]; then
     echo "!!! ANT_HOME not set, defaulting to $ANT_HOME"
 fi
 
+if [ ! $HBASE_HOME ]; then
+    HBASE_HOME="/opt/hbase"
+    echo "!!! HBASE_HOME not set, default to $HBASE_HOME"
+fi
+
 cd $NUTCH_HOME
 if [ -d runtime ]; then
     echo "Backing up previous runtime directory"
@@ -27,14 +32,16 @@ if [ -d runtime ]; then
 fi
 
 # use the custom config file.
-cp /$SRCROOT/conf/ivy.xml ivy/ivy.xml
+cp /$SRCROOT/conf/nutch/ivy.xml ivy/ivy.xml
+cp /$SRCROOT/conf/nutch/gora.properties conf/gora.properties
+cp /$SRCROOT/conf/hbase/hbase-site.xml $HBASE_HOME/conf/hbase-site.xml
 
 # build nutch
 $ANT_HOME/bin/ant runtime
 
 # Install the custom config file.
 cd runtime/local
-cp /$SRCROOT/conf/nutch-site.xml conf/nutch-site.xml
+cp /$SRCROOT/conf/nutch/nutch-site.xml conf/nutch-site.xml
 mkdir urls && cp /$SRCROOT/conf/urls.txt urls
 
 echo "Build complete, now run the crawler (see the README for details)."

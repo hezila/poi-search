@@ -9,7 +9,6 @@ ANT_URL="http://apache.communilink.net//ant/binaries/$ANT_ARCHIVE"
 HBASE_URL="http://archive.apache.org/dist/hbase/hbase-$HBASE_VER/$HBASE_ARCHIVE"
 NUTCH_URL="http://apache.communilink.net/nutch/$NUTCH_VER/$NUTCH_ARCHIVE"
 ES_URL="https://download.elastic.co/elasticsearch/elasticsearch/$ES_ARCHIVE"
-# ES_URL="https://github.com/elastic/elasticsearch/archive/v1.5.1.tar.gz"
 cd $ROOTDIR/downloads
 
 

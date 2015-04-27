@@ -43,6 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.manifest_file  = "init.pp"
   end
 
+  config.vm.provision :shell, :path => "bootstrap.sh"
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false

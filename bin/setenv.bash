@@ -3,7 +3,7 @@
 ANT_VER="1.9.4"
 HBASE_VER="0.94.27"
 NUTCH_VER="2.3"
-ES_VER="1.5.1"
+ES_VER="1.5.2"
 
 ANT_ARCHIVE="apache-ant-$ANT_VER-bin.tar.gz"
 NUTCH_ARCHIVE="apache-nutch-$NUTCH_VER-src.tar.gz"
