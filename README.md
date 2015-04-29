@@ -21,7 +21,6 @@ Install
 
         bin/build-nutch.bash
 
->> Note: config the JAVA_HOME in the $HBASE_HOME/conf/hbase
 
 (Optional) Elasticsearch plugin
 -------------------------------
