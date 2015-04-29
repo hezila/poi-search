@@ -1,0 +1,8 @@
+.idea
+*.jar
+*.javac
+*.txt
+
+target
+repo
+.DS_Store
