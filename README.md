@@ -21,6 +21,7 @@ Install
 
         bin/build-nutch.bash
 
+>> Note: config the JAVA_HOME in the $HBASE_HOME/conf/hbase
 
 (Optional) Elasticsearch plugin
 -------------------------------
@@ -37,7 +38,15 @@ Install
 
     access http://localhost:9200/_plugin/bigdesk/
 
-Sequence of operation
+
+(Optional) Third part tools
+---------------------------
+
+1. **Kibana** - An open source browser based analytics and search dashboard for Elasticsearch
+
+
+
+Sequence of operations [https://github.com/elastic/kibana](https://github.com/elastic/kibana)
 ---------------------
 
 1. Inject - populates CrawlDB from seed urls
@@ -65,3 +74,9 @@ References
 ----------
 
 * [Simple Vagrant Tutorial](http://twang2218.github.io/tutorial/openstack/vagrant.html)
+
+* [Nutch Elasticsearch guidline (old version)](https://github.com/duffj/nutch-elasticsearch)
+
+* [Nutch 2.3 + ElasticSearch 1.4 + HBase 0.94 Setup gist](https://gist.github.com/xrstf/b48a970098a8e76943b9)
+
+* [Nutch Elasticsearch Mongo](http://www.aossama.com/search-engine-with-apache-nutch-mongodb-and-elasticsearch/)

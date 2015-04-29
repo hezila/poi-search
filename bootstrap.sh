@@ -5,3 +5,4 @@
 
 # start elasticsearch
 nohup /opt/es/bin/elasticsearch > /dev/null &
+nohup /opt/kibana/bin/kibana > /dev/null &

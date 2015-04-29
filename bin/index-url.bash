@@ -44,4 +44,5 @@ echo "*** updatedb"
 bin/nutch updatedb || exit 1
 
 echo "*** indexing into elasticsearch"
-bin/nutch elasticindex elasticsearch -all || exit 1
+# bin/nutch elasticindex elasticsearch -all || exit 1
+bin/nutch elasticindex numb3r3 -all || exit 1

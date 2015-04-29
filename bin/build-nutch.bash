@@ -25,23 +25,31 @@ if [ ! $HBASE_HOME ]; then
     echo "!!! HBASE_HOME not set, default to $HBASE_HOME"
 fi
 
+if [ ! $ES_HOME ]; then
+    ES_HOME="/opt/es"
+    echo "!!! ES_HOME not set, default to $ES_HOME"
+fi
+
 cd $NUTCH_HOME
 if [ -d runtime ]; then
     echo "Backing up previous runtime directory"
     mv runtime runtime.bak-$ts
 fi
 
+
 # use the custom config file.
 cp /$SRCROOT/conf/nutch/ivy.xml ivy/ivy.xml
 cp /$SRCROOT/conf/nutch/gora.properties conf/gora.properties
+cp /$SRCROOT/conf/nutch/nutch-site.xml conf/nutch-site.xml
 cp /$SRCROOT/conf/hbase/hbase-site.xml $HBASE_HOME/conf/hbase-site.xml
+cp /$SRCROOT/conf/es/elasticsearch.yml $ES_HOME/config/elasticsearch.yml
 
+cp /$SRCROOT/patches/ElasticWriter.java $NUTCH_HOME/src/java/org/apache/nutch/indexer/elastic/ElasticWriter.java
 # build nutch
 $ANT_HOME/bin/ant runtime
 
 # Install the custom config file.
 cd runtime/local
-cp /$SRCROOT/conf/nutch/nutch-site.xml conf/nutch-site.xml
 mkdir urls && cp /$SRCROOT/conf/urls.txt urls
 
 echo "Build complete, now run the crawler (see the README for details)."

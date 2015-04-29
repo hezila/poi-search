@@ -9,6 +9,8 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.settings.ImmutableSettings;
+import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
@@ -114,7 +116,7 @@ public class SimpleTest {
 //       client.prepareIndex("collection1", "core1").setSource(doc).execute().actionGet();
 
         //批处理添加
-        bulk.add(client.prepareIndex("collection1", "core1").setSource(doc));
+        bulk.add(client.prepareIndex("nutch", "entry").setSource(doc));
 
         doc=XContentFactory.jsonBuilder()
                 .startObject()
@@ -127,7 +129,7 @@ public class SimpleTest {
         //collection为索引库名，类似一个数据库，索引名为core，类似一个表
 //      client.prepareIndex("collection1", "core1").setSource(doc).execute().actionGet();
         //批处理添加
-        bulk.add(client.prepareIndex("collection1", "core1").setSource(doc));
+        bulk.add(client.prepareIndex("nutch", "entry").setSource(doc));
 
         doc=XContentFactory.jsonBuilder()
                 .startObject()
@@ -140,7 +142,7 @@ public class SimpleTest {
         //collection为索引库名，类似一个数据库，索引名为core，类似一个表
         //client.prepareIndex("collection1", "core1").setSource(doc).execute().actionGet();
         //批处理添加
-        bulk.add(client.prepareIndex("collection1", "core1").setSource(doc));
+        bulk.add(client.prepareIndex("nutch", "entry").setSource(doc));
 
 
         //发一次请求，提交所有数据
@@ -156,7 +158,7 @@ public class SimpleTest {
 
     public static void querySimple()throws Exception{
 
-        SearchResponse sp = client.prepareSearch("collection1").execute().actionGet();
+        SearchResponse sp = client.prepareSearch("nutch").execute().actionGet();
         for(SearchHit hits : sp.getHits().getHits()){
             String sourceAsString = hits.sourceAsString();//以字符串方式打印
             System.out.println(sourceAsString);
@@ -181,8 +183,10 @@ public class SimpleTest {
     public static void init() {
         if (client == null) {
             // connect to single machine
-            client=new TransportClient().
+            Settings settings = ImmutableSettings.settingsBuilder().put("cluster.name", "numb3r3").build();
+            client=new TransportClient(settings).
                     addTransportAddress(new InetSocketTransportAddress("192.168.33.10", 9300));
+
         }
     }
     public static void stop() {

@@ -26,6 +26,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 80, host: 8080
   config.vm.network "forwarded_port", guest: 9200, host: 9200
+  config.vm.network "forwarded_port", guest: 5601, host: 5601
+
+  # HBase web UI ports
+  config.vm.network :forwarded_port, guest: 60010, host: 60110
+  config.vm.network :forwarded_port, guest: 60030, host: 60130
+
+  #ZooKeeper
+  config.vm.network :forwarded_port, guest: 2181, host: 2281
 
 
   # Create a private network, which allows host-only access to the machine

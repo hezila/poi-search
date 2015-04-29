@@ -42,11 +42,11 @@
         <description>The cluster name to discover. Either host and potr must be defined
   or cluster.</description>
     </property>
-    <!-- <property>
+    <property>
         <name>elastic.index</name>
         <value>nutch</value>
         <description>Default index to send documents to.</description>
-    </property> -->
+    </property>
     <property>
         <name>elastic.max.bulk.docs</name>
         <value>-1</value>

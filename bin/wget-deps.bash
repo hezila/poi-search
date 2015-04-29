@@ -6,9 +6,10 @@ ROOTDIR="/vagrant"
 
 
 ANT_URL="http://apache.communilink.net//ant/binaries/$ANT_ARCHIVE"
-HBASE_URL="http://archive.apache.org/dist/hbase/hbase-$HBASE_VER/$HBASE_ARCHIVE"
-NUTCH_URL="http://apache.communilink.net/nutch/$NUTCH_VER/$NUTCH_ARCHIVE"
+HBASE_URL="http://apache.communilink.net/hbase/hbase-$HBASE_VER/$HBASE_ARCHIVE"
+NUTCH_URL="https://archive.apache.org/dist/nutch/$NUTCH_VER/$NUTCH_ARCHIVE"
 ES_URL="https://download.elastic.co/elasticsearch/elasticsearch/$ES_ARCHIVE"
+KIBANA_URL="https://download.elastic.co/kibana/kibana/$KIBANA_ARCHIVE"
 cd $ROOTDIR/downloads
 
 
@@ -26,4 +27,8 @@ fi
 
 if [ ! -f $ES_ARCHIVE ]; then
     wget $ES_URL
+fi
+
+if [ ! -f $KIBANA_ARCHIVE ]; then
+    wget $KIBANA_URL
 fi

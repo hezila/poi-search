@@ -68,6 +68,22 @@ if [ ! -d $ES_HOME ]; then
 fi
 ln -nsf $ES_HOME $APPROOT/es
 
+KIBANA_HOME="$APPROOT/kibana-$KIBANA_VER"
+if [ ! -d $KIBANA_HOME ]; then
+    echo "kibana missing"
+    if [ -f $DOWNLOADS/$KIBANA_ARCHIVE ]; then
+        echo "Extracting kibana archive $KIBANA_ARCHIVE..."
+        cd $APPROOT
+        tar -xzf $DOWNLOADS/$KIBANA_ARCHIVE
+        echo "done."
+    else
+        echo "Need to download es, run wget-deps.bash"
+        exit 1
+    fi
+fi
+ln -nsf $KIBANA_HOME $APPROOT/kibana
+
+
 echo "Now:"
 echo " 1. Start hbase: /opt/hbase/bin/start-hbase.sh"
 echo " 2. Build nutch: /vagrant/bin/build-nutch.bash"
