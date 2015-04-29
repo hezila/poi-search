@@ -22,6 +22,16 @@ Install
         bin/build-nutch.bash
 
 
+(Optional) Elasticsearch plugin
+-------------------------------
+
+1. Head - a web front end for browsing and interacting with an Elastic Search cluster
+        bin/plugin --install mobz/elasticsearch-head
+
+2. Bigdesk - to see how your Elasticsearch cluster is doing
+        bin/plugin -install lukas-vlcek/bigdesk
+
+
 References
 ----------
 
