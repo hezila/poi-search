@@ -21,7 +21,9 @@ Install
 
         bin/build-nutch.bash
 
->> Note: config the JAVA_HOME in the $HBASE_HOME/conf/hbase
+>> **Note:**
+>> 1) config the JAVA_HOME in the $HBASE_HOME/conf/hbase-config.sh
+>> 2) check /etc/hosts
 
 (Optional) Elasticsearch plugin
 -------------------------------
@@ -42,26 +44,25 @@ Install
 (Optional) Third part tools
 ---------------------------
 
-1. **Kibana** - An open source browser based analytics and search dashboard for Elasticsearch
+1. **[Kibana](https://github.com/elastic/kibana)** - An open source browser based analytics and search dashboard for Elasticsearch
 
 
-
-Sequence of operations [https://github.com/elastic/kibana](https://github.com/elastic/kibana)
+Sequence of operations
 ---------------------
 
-1. Inject - populates CrawlDB from seed urls
+1. **Inject** - populates CrawlDB from seed urls
 
-2. Generate - select URLS to fetch in segment
+2. **Generate** - select URLS to fetch in segment
 
-3. Fetch - fetch URL from segment
+3. **Fetch** - fetch URL from segment
 
-4. Parse - parse content (text + meta data)
+4. **Parse** - parse content (text + meta data)
 
-5. UpdateDB - update CrawlDB (new URLs, new status)
+5. **UpdateDB** - update CrawlDB (new URLs, new status)
 
-6. InvertLinks - build web graph
+6. **InvertLinks** - build web graph
 
-7. ESIndex - send doc into ES
+7. **ESIndex** - send doc into ES
 
 Database schema
 ---------------
