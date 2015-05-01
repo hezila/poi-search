@@ -36,5 +36,7 @@ public class URLPattern {
 
         boolean is_poi_review_url = is_poi_review(test_url);
         System.out.println("IS POI REVIEW URL: " + is_poi_review_url);
+
+
     }
 }

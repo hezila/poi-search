@@ -68,6 +68,7 @@ public class POIFieldExtractorFilter implements ParseFilter {
             String html = new String(rawContent);
             for (Map.Entry<String, Object> field : fieldExtractor.extractPOIFields(url, html).entrySet()) {
                 // TODO: handle the extracted object (e.g., array)
+
                 page.putToMetadata(new Utf8(field.getKey()),
                         ByteBuffer.wrap(field.getValue().toString().getBytes()));
 
