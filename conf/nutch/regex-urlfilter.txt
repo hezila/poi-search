@@ -36,4 +36,7 @@
 -.*(/[^/]+)/[^/]+\1/[^/]+\1/
 
 # accept anything else
-+.
++^http://place.qyer.com/([a-zA-Z0-9]*\.)
++^http://place.qyer.com/poi/([a-zA-Z0-9]*\.)/review/
+-^http://place.qyer.com/review/([a-zA-Z0-9]*\.)
+-^http://place.qyer.com/poi/([a-zA-Z0-9]*\.)/photo/
