@@ -14,10 +14,15 @@ A toy poi search engine based on Nutch and Elasticsearch
 **Goal**: to extract specific information about the POI from crawled web page
 
 The extracted fields (see "FieldExtractor.java"):
+
         * **POI title**: e.g., "Helsingin Tuomiokirkko 赫尔辛基大教堂"
+
         * **POI star rating**: e.g., 8.9
+
         * **POI description**
+
         * **POI tips**: include the address, categories and so on
+
         * **POI googl map url**: the google map of this location. we can also get the geographic coordinates (lat, lon) [TODO].
 
 **Issues**
