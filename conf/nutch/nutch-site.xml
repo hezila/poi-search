@@ -9,15 +9,22 @@
     </property>
     <property>
         <name>http.agent.name</name>
-        <value>numb3r3</value>
+        <value>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.95 Safari/537.3</value>
         <description/>
     </property>
 
+    <property>
+        <name>parser.character.encoding.default</name>
+        <value>utf-8</value>
+        <description>The character encoding to fall back to when no other information
+        is available</description>
+    </property>
 
-    <!-- <property>
+
+    <property>
       <name>plugin.includes</name>
-      <value>protocol-(http|httpclient)|urlfilter-regex|index-(basic|more)|query-(basic|site|url|lang)|indexer-elastic|nutch-extensionpoints|parse-(text|html|msexcel|msword|mspowerpoint|pdf)|summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)|parse-(html|tika|metatags)|index-(basic|anchor|more|metadata)</value>
-    </property> -->
+      <value>protocol-http|urlfilter-regex|parse-(html|tika)|index-(basic|anchor)|wisify-qyer|urlnormalizer-(pass|regex|basic)|scoring-opic</value>
+    </property>
 
     <property>
         <name>db.ignore.external.links</name>
