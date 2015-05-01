@@ -3,6 +3,10 @@ POI search engine from scratch
 
 A toy poi search engine based on Nutch and Elasticsearch
 
+        HBASE_VER="0.90.4"
+        NUTCH_VER="2.2.1"
+        ES_VER="1.5.2"
+
 Install
 -------
 
@@ -76,8 +80,14 @@ References
 
 * [Simple Vagrant Tutorial](http://twang2218.github.io/tutorial/openstack/vagrant.html)
 
+* [Web crawling with nutch](http://events.linuxfoundation.org/sites/events/files/slides/aceu2014-snagel-web-crawling-nutch.pdf)
+
 * [Nutch Elasticsearch guidline (old version)](https://github.com/duffj/nutch-elasticsearch)
 
 * [Nutch 2.3 + ElasticSearch 1.4 + HBase 0.94 Setup gist](https://gist.github.com/xrstf/b48a970098a8e76943b9)
 
 * [Nutch Elasticsearch Mongo](http://www.aossama.com/search-engine-with-apache-nutch-mongodb-and-elasticsearch/)
+
+* [How to write nutch plugin](http://wiki.apache.org/nutch/WritingPluginExample)
+
+* [Nutch crawling workflow](http://www.cnblogs.com/huligong1234/p/3515214.html)
