@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="wisify-qyer" default="jar-core">
+
+    <import file="../build-plugin.xml"/>
+
+    <!-- Add compilation dependencies to classpath -->
+    <path id="plugin.deps">
+        <fileset dir="${nutch.root}/build">
+            <include name="**/lib/*.jar" />
+        </fileset>
+    </path>
+
+</project>
