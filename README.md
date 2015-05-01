@@ -8,22 +8,22 @@ A toy poi search engine based on Nutch and Elasticsearch
         NUTCH_VER="2.2.1"
         ES_VER="1.5.2"
 
-**Outputs:** The Qyer Nutch Plugin
-----------------------------------
+**Outputs:** The Qyer Nutch Plugin (**check the wisify-qyer-plugin folder**)
+----------------------------------------------------------------------------
 
 **Goal**: to extract specific information about the POI from crawled web page
 
 The extracted fields (see "FieldExtractor.java"):
 
-        * **POI title**: e.g., "Helsingin Tuomiokirkko 赫尔辛基大教堂"
+        1. **POI title**: e.g., "Helsingin Tuomiokirkko 赫尔辛基大教堂"
 
-        * **POI star rating**: e.g., 8.9
+        2. **POI star rating**: e.g., 8.9
 
-        * **POI description**
+        3. **POI description**
 
-        * **POI tips**: include the address, categories and so on
+        4. **POI tips**: include the address, categories and so on
 
-        * **POI googl map url**: the google map of this location. we can also get the geographic coordinates (lat, lon) [TODO].
+        5. **POI googl map url**: the google map of this location. we can also get the geographic coordinates (lat, lon) [TODO].
 
 **Issues**
 
