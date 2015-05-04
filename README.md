@@ -29,7 +29,9 @@ The extracted fields (see "FieldExtractor.java"):
 
 1. the html is parsed using [Jsoup](http://jsoup.org/), which would be very slow. The xpath method would be preferred.
 
-2. the nutch version is 2.2.1 (latest 2.3).
+2. Chinese tokenizer in ES
+
+3. the nutch version is 2.2.1 (latest 2.3).
 
 
 

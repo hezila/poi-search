@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<parse>
+    <fields>
+	       <fieldname>jID</fieldname>
+           <jsoupquery>#qinfo tr:nth-child(2) td:nth-child(2) p b</jsoupquery>
+
+           <!-- set if process url text instead of use jsoup query-->
+           <processingUrl>false</processingUrl>
+
+           <!-- if jsoupquery result contain a value execute TextProcessAlternative instead of default textProcess by reference id-->
+	       <textProcessAlternativeCheck>
+		         <enable>false</enable>
+                 <containsVal>demo</containsVal>
+                 <referenceId>1</referenceId>
+	       </textProcessAlternativeCheck>
+
+           <!-- set custom value if nothing is found-->
+           <nothingFoundAction>
+               <setcustomVal>false</setcustomVal>
+               <customVal>NA</customVal>
+           </nothingFoundAction>
+
+	       <!-- Go back to n parent(goBackParentsNumbers) from Elements found by jsoupquery
+		         and execute a new query (the value is also processed with "textProcess")
+		   -->
+	       <moveToParent>
+               <enabled>true</enabled>
+               <goBackParentsNumbers>3</goBackParentsNumbers>
+               <jsoupquery>div.bidCard-ft div.bidCard-bidInfo</jsoupquery>
+		   </moveToParent>
+
+       <!-- if=true process each element found and join text with separator(multipleSeparator) -->
+       <!--
+       <isMultiple>false</isMultiple>
+       <multipleSeparator></multipleSeparator>-->
+
+       <!-- <equalcheckBeforeTextProcess></equalcheckBeforeTextProcess> -->
+
+       <!-- text,html,attr,count,static,array,joinfields-->
+       <returnType>text</returnType>
+
+       <!-- Join 2 fields (return type = joinfields )  -->
+       <!--
+       <joinfields>
+         <fieldName>title</fieldName>
+         <fieldName>tag</fieldName>
+         <separator>,</separator>
+       </joinfields>
+        -->
+
+       <!-- query into elastic-->
+       <elastic>
+         <findintoelastic>false</findintoelastic>
+         <findUrlValue></findUrlValue>
+         <fieldName></fieldName>
+         <!--processFieldJsoup or setFieldValue-->
+         <elasticprocesstype>processFieldJsoup</elasticprocesstype>
+       </elastic>
+
+       <!-- if Return type = static return ever this value -->
+       <attrname></attrname>
+
+       <!-- if Return type = static return ever this value -->
+       <staticval></staticval>
+
+       <!-- if Return type = array set the separator of fetched string to generate array -->
+       <arraySeparator>,</arraySeparator>
+
+		<!-- Post process text after exectute jsoup query -->
+	     <textProcess>
+
+           <!-- It's possible to add more then 1 <trim></trim>
+                trim type(left,right,both) -->
+	         <trim><trimvalue> </trimvalue><type>both</type></trim>
+
+           <!-- It's possible to add more then 1 <replace></replace> -->
+			     <!-- Replace Text (multiples)-->
+           <!--
+	         <replace>
+	             <findstring></findstring>
+	             <val></val>
+	         </replace>-->
+
+
+         <!-- split (return an index of splitted array)
+                          Multiple index Ex: a,b,c,d
+                          set multiple index and separator for return
+                            <returnindex>0</returnindex>
+                            <returnindex>2</returnindex>
+                            <separator>|</separator>
+
+                            result a|c
+                          -->
+         <!--
+	         <split>
+	             <splitvalue></splitvalue>
+	             <returnindex></returnindex>
+               <separator></separator>
+	         </split>
+	         -->
+
+       <!-- It's possible to add more then 1 <append></append> -->
+			 <!-- Append value before,after or both -->
+       <!--
+			 <append>
+				<type>both</type>
+				<val></val>
+			 </append>
+        -->
+
+				<!-- substring
+        type : beginindex,fromTo
+				beginindex : For eg. (beginindex=5) "This is a text"  => "is as text" (
+				fromTo : : For eg. (beginindex=0,endindex=4) "This is a text"  => "This"
+				-->
+         <!--
+       <substring>
+				<type>fromTo</type>
+				<beginindex>5</beginindex>
+				<endindex>10</endindex>
+			 </substring>
+       -->
+
+			 <!-- perform regex match -->
+
+			 <regexbefore></regexbefore>
+			 <regexafter></regexafter>
+
+         <!-- caclulate percent value (for. eg extracted 4 on totalValue=10 = 40%)  -->
+         <!--
+         <percentCalculate>
+           <appendPercentValue>true</appendPercentValue>
+           <totalValue>10</totalValue>
+         </percentCalculate>
+         !-->
+
+         <!-- if Contain a value replace with custom value -->
+         <!--
+         <contains>
+           <containValue>myValue</containValue>
+           <customValue>newValue</customValue>
+           <caseInsensitive>false</caseInsensitive>
+         </contains>
+         -->
+
+         <!--date pattern conversion avaiable terms "M,d,y,k,m,s"
+         For e.g "6 days, 23 hours left"
+         -->
+         <!--
+         <datePattern>
+           <dateFormat>M/d/y k:m:s</dateFormat>
+           <separator> </separator>
+           <type>splitPatternFromNow</type>
+
+           <indexDef>
+             <index>0</index>
+             <dateLetter>d</dateLetter>
+           </indexDef>
+           <indexDef>
+             <index>2</index>
+             <dateLetter>k</dateLetter>
+           </indexDef>
+
+         </datePattern>
+          -->
+	     </textProcess>
+
+
+
+       <!-- text proce rule alternative executed instead of default if textProcessAlternativeCheck is enabled and string was found  -->
+       <textProcessAlternative>
+         <id>1</id>
+         <textProcess>
+           <!--
+           ..............
+           -->
+         </textProcess>
+       </textProcessAlternative>
+
+       <!-- force to get value to a specific type. Else = 0 -->
+		<convertToType>
+			<type>date</type>
+			<dateFormatToCheck>MM/dd/yyyy HH:mm:ss</dateFormatToCheck>
+			<dateConvertToFormat>MM/dd/yyyy HH:mm:ss</dateConvertToFormat>
+			<defaultDate>01/01/2999 00:00:00</defaultDate>
+		</convertToType>
+
+       <!-- check if value is equal or not equal and override to an stastic value after process text-->
+		 <!-- For e.g if val=1000 set val=thousand -->
+		 <!-- lengthGT : if "val" length "lengthtocheck" set val=replaceval>  -->
+     <!-- Type : equal,notequal,lengthGT,lengthLT !-->
+     <!--
+     <equalcheckAfterTextProcess>
+			<type>equal</type>
+			<valtocheck>1000</valtocheck>
+			<lengthtocheck></lengthtocheck>
+			<replaceval>thousand</replaceval>
+		 </equalcheckAfterTextProcess>
+		 -->
+     </fields>
+
+
+ </parse>

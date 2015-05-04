@@ -163,9 +163,6 @@ public class SimpleTest {
             String sourceAsString = hits.sourceAsString();//以字符串方式打印
             System.out.println(sourceAsString);
         }
-
-
-
     }
 
     public static void main(String[] args)throws Exception {
